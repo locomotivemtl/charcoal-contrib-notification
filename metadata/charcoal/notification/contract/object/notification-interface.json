@@ -1,0 +1,56 @@
+{
+    "properties":{
+        "id":{
+            "type":"id",
+            "mode":"uniqid"
+        },
+        "users":{
+            "type":"object",
+            "label": {
+                "fr": "Utilisateur",
+                "en": "User"
+            },
+            "obj_type":"charcoal/admin/user",
+            "multiple": true
+        },
+        "target_types":{
+            "type":"object",
+            "obj_type": "charcoal/admin/object/notification-target",
+            "multiple": true,
+            "label": {
+                "fr": "Objets",
+                "en": "Objects"
+            },
+            "pattern": "{{label}}"
+        },
+        "extra_emails":{
+            "type":"email",
+            "label": {
+                "fr": "Courriel",
+                "en": "Email"
+            },
+            "multiple":true
+        },
+        "frequency":{
+            "type":"string",
+            "label": {
+                "fr": "Fréquence",
+                "en": "Frequency"
+            },
+            "choices":{
+                "minute":{
+                    "label": {
+                        "fr": "Minute"
+                    }
+                },
+                "hourly":{},
+                "daily":{},
+                "weekly":{},
+                "yearly":{}
+            }
+        },
+        "active":{
+            "type":"boolean"
+        }
+    }
+}

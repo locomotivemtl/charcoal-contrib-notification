@@ -1,0 +1,91 @@
+{
+    "admin": {
+        "lists": {
+            "default": {
+                "label": "Notifications",
+                "properties": [
+                    "type",
+                    "label",
+                    "active"
+                ],
+                "list_actions": [
+                    {
+                        "ident": "create",
+                        "label": {
+                            "en": "Add object type",
+                            "fr": "Ajouter un objet"
+                        },
+                        "url": "object/edit?obj_type={{objType}}"
+                    }
+                ]
+            }
+        },
+        "default_list": "default",
+
+        "forms": {
+            "default": {
+                "label": {
+                    "fr": "Objet",
+                    "en": "Notification object"
+                },
+                "groups": {
+                    "main": {
+                        "title": {
+                            "en": "Information",
+                            "fr": "Informations"
+                        },
+                        "layout": {
+                            "structure": [
+                                {
+                                    "columns": [2, 1]
+                                },
+                                {
+                                    "columns": [1]
+                                }
+                            ]
+                        },
+                        "properties": [
+                            "type",
+                            "label",
+                            "active"
+                        ],
+                        "priority": 10
+                    }
+                },
+                "sidebars": {
+                    "actions": {
+                        "properties": [
+                            "created",
+                            "created_by",
+                            "last_modified",
+                            "last_modified_by"
+                        ]
+                    }
+                }
+            }
+        },
+        "default_form": "default",
+
+        "dashboards": {
+            "admin.edit": {
+                "widgets": {
+                    "form": {
+                        "type": "charcoal/admin/widget/object-form"
+                    }
+                }
+            },
+            "admin.collection": {
+                "widgets": {
+                    "list": {
+                        "type": "charcoal/admin/widget/table",
+                        "collection_ident": "default",
+                        "data_sources": ["request"]
+                    }
+                }
+            }
+        },
+        "default_create_dashboard": "admin.edit",
+        "default_edit_dashboard": "admin.edit",
+        "default_collection_dashboard": "admin.collection"
+    }
+}

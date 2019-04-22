@@ -1,0 +1,34 @@
+{
+    "admin": {
+        "routes": {
+            "scripts": {
+                "notification/minute":{
+                    "ident": "charcoal/admin/script/notification/process-minute"
+                },
+                "notification/hourly":{
+                    "ident": "charcoal/admin/script/notification/process-hourly"
+                },
+                "notification/daily":{
+                    "ident": "charcoal/admin/script/notification/process-daily"
+                },
+                "notification/weekly":{
+                    "ident": "charcoal/admin/script/notification/process-weekly"
+                },
+                "notification/monthly":{
+                    "ident": "charcoal/admin/script/notification/process-monthly"
+                }
+            }
+        },
+        "system_menu": {
+            "items": {
+                "notifications": {
+                    "required_acl_permissions": ["system/admin"],
+                    "active": true,
+                    "label": "Notifications",
+                    "icon_css": "fa fa-envelope-open-text",
+                    "url": "object/collection?obj_type=charcoal/notification/object/notification"
+                }
+            }
+        }
+    }
+}

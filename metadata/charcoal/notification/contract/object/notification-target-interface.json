@@ -1,0 +1,28 @@
+{
+    "properties":{
+        "type":{
+            "type":"id",
+            "mode": "custom",
+            "type":"string",
+            "label": "Type",
+            "description": {
+                "fr": "Ex: charcoal/admin/user",
+                "en": "I.e charcoal/admin/user"
+            }
+        },
+        "label":{
+            "type":"string",
+            "l10n": true,
+            "label": {
+                "fr": "Nom / Libelé de l'objet",
+                "en": "Object's label / name"
+            }
+        },
+        "active":{
+            "type":"boolean"
+        }
+    },
+    "default_data": {
+        "key": "type"
+    }
+}

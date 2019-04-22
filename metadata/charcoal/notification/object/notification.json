@@ -1,0 +1,99 @@
+{
+    "sources": {
+        "default": {
+            "table": "charcoal_admin_notifications"
+        }
+    },
+    "default_source": "default",
+    "admin": {
+        "lists": {
+            "default": {
+                "label": "Notifications",
+                "properties": [
+                    "users",
+                    "target_types",
+                    "extra_emails",
+                    "frequency",
+                    "active"
+                ],
+                "list_actions": [
+                    {
+                        "ident": "create",
+                        "label": {
+                            "en": "Create a new notification",
+                            "fr": "Créer une notification"
+                        },
+                        "url": "object/edit?obj_type={{objType}}"
+                    }
+                ]
+            }
+        },
+        "default_list": "default",
+        "forms": {
+            "default": {
+                "label": "Notification",
+                "groups": {
+                    "main": {
+                        "title": {
+                            "en": "Information",
+                            "fr": "Informations"
+                        },
+                        "layout": {
+                            "structure": [
+                                {
+                                    "columns": [3, 1]
+                                },
+                                {
+                                    "columns": [1, 1]
+                                },
+                                {
+                                    "columns": [1]
+                                }
+                            ]
+                        },
+                        "properties": [
+                            "target_types",
+                            "frequency",
+                            "users",
+                            "extra_emails",
+                            "active"
+                        ],
+                        "priority": 10
+                    }
+                },
+                "sidebars": {
+                    "actions": {
+                        "properties": [
+                            "created",
+                            "created_by",
+                            "last_modified",
+                            "last_modified_by"
+                        ]
+                    }
+                }
+            }
+        },
+        "default_form": "default",
+        "dashboards": {
+            "admin.edit": {
+                "widgets": {
+                    "form": {
+                        "type": "charcoal/admin/widget/object-form"
+                    }
+                }
+            },
+            "admin.collection": {
+                "widgets": {
+                    "list": {
+                        "type": "charcoal/admin/widget/table",
+                        "collection_ident": "default",
+                        "data_sources": ["request"]
+                    }
+                }
+            }
+        },
+        "default_create_dashboard": "admin.edit",
+        "default_edit_dashboard": "admin.edit",
+        "default_collection_dashboard": "admin.collection"
+    }
+}
