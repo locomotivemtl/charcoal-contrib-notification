@@ -68,7 +68,7 @@ class NotificationTransformer
                 if ($target->id()) {
                     return (string)$target->label();
                 }
-                
+
                 if (isset($targetObject->metadata()['label'])) {
                     return $this->translator()->translation($targetObject->metadata()['label']);
                 }
@@ -76,7 +76,12 @@ class NotificationTransformer
                 return $model->targetType();
             },
             'userObject'        => function ($model) use ($factory) {
-                return $factory->create(User::class)->load($model->revUser());
+                $user = $factory->create(User::class)->load($model->revUser());
+                return [
+                    'id' => $user->id(),
+                    'email' => $user->email(),
+                    'displayName' => $user->displayName()
+                ];
             },
             'publicUrl'         => function ($model) use ($targetObject, $baseUrl) {
                 return is_callable([$targetObject, 'url']) ? $baseUrl . $targetObject->url() : null;
