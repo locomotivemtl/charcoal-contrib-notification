@@ -335,7 +335,7 @@ class NotificationService
         foreach ($notification->extraEmails() as $extraEmail) {
             $email->addBcc($extraEmail);
         }
-        echo $email->msgHtml();
+        
         $email->send();
     }
 
