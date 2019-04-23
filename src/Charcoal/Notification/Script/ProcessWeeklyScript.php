@@ -2,11 +2,8 @@
 
 namespace Charcoal\Notification\Script;
 
+use Charcoal\Notification\Object\Notification;
 use DateTime;
-
-// From 'charcoal-admin'
-use Charcoal\Admin\Object\Notification;
-use Charcoal\Admin\Script\Notification\AbstractNotificationScript;
 
 /**
  * Process "hourly" notifications
@@ -25,6 +22,7 @@ class ProcessWeeklyScript extends AbstractNotificationScript
 
     /**
      * Retrieve the "minimal" date that the revisions should have been made for this script.
+     *
      * @return DateTime
      */
     protected function startDate()
@@ -36,6 +34,7 @@ class ProcessWeeklyScript extends AbstractNotificationScript
 
     /**
      * Retrieve the "maximal" date that the revisions should have been made for this script.
+     *
      * @return DateTime
      */
     protected function endDate()
@@ -61,9 +60,9 @@ class ProcessWeeklyScript extends AbstractNotificationScript
         );
 
         return [
-            'subject'         => $subject,
-            'template_ident'  => 'charcoal/admin/email/notification.weekly',
-            'template_data'   => [
+            'subject'        => $subject,
+            'template_ident' => 'charcoal/admin/email/notification.weekly',
+            'template_data'  => [
                 'startString' => $this->startDate()->format('Y-m-d'),
                 'endString'   => $this->startDate()->format('Y-m-d')
             ]

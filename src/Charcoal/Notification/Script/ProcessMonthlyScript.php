@@ -2,11 +2,9 @@
 
 namespace Charcoal\Notification\Script;
 
+use Charcoal\Notification\Object\Notification;
 use DateTime;
 
-// From 'charcoal-admin'
-use Charcoal\Admin\Object\Notification;
-use Charcoal\Admin\Script\Notification\AbstractNotificationScript;
 
 /**
  * Process "hourly" notifications
@@ -25,6 +23,7 @@ class ProcessMonthlyScript extends AbstractNotificationScript
 
     /**
      * Retrieve the "minimal" date that the revisions should have been made for this script.
+     *
      * @return DateTime
      */
     protected function startDate()
@@ -36,6 +35,7 @@ class ProcessMonthlyScript extends AbstractNotificationScript
 
     /**
      * Retrieve the "minimal" date that the revisions should have been made for this script.
+     *
      * @return DateTime
      */
     protected function endDate()
@@ -55,9 +55,9 @@ class ProcessMonthlyScript extends AbstractNotificationScript
         unset($notification, $objects);
 
         return [
-            'subject'         => sprintf('Monthly Charcoal Notification - %s', $this->startDate()->format('Y-m-d')),
-            'template_ident'  => 'charcoal/admin/email/notification.monthly',
-            'template_data'   => [
+            'subject'        => sprintf('Monthly Charcoal Notification - %s', $this->startDate()->format('Y-m-d')),
+            'template_ident' => 'charcoal/admin/email/notification.monthly',
+            'template_data'  => [
                 'startString' => $this->startDate()->format('Y-m-d')
             ]
         ];

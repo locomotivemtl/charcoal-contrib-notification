@@ -3,10 +3,9 @@
 namespace Charcoal\Notification\Script;
 
 use DateTime;
+use Charcoal\Notification\Object\Notification;
 
 // From 'charcoal-admin'
-use Charcoal\Admin\Object\Notification;
-use Charcoal\Admin\Script\Notification\AbstractNotificationScript;
 
 /**
  * Process "daily" notifications
@@ -56,7 +55,7 @@ class ProcessDailyScript extends AbstractNotificationScript
 
         return [
             'subject'         => sprintf('Daily Charcoal Notification - %s', $this->startDate()->format('Y-m-d')),
-            'template_ident'  => 'charcoal/admin/email/notification.daily',
+            'template_ident'  => 'charcoal/notification/email/notification.daily',
             'template_data'   => [
                 'startString' => $this->startDate()->format('Y-m-d')
             ]

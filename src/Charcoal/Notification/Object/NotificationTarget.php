@@ -1,8 +1,8 @@
 <?php
 
-namespace Charcoal\Admin\Object;
+namespace Charcoal\Notification\Object;
 
-use Charcoal\Notification\NotificationTargetInterface;
+use Charcoal\Notification\Contract\Object\NotificationTargetInterface;
 use Charcoal\Object\Content;
 
 /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Charcoal\Notification;
+namespace Charcoal\Notification\Contract\Object;
 
 interface NotificationTargetInterface
 {

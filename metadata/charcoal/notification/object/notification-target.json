@@ -1,4 +1,10 @@
 {
+    "sources": {
+        "default": {
+            "table": "charcoal_admin_notification_targets"
+        }
+    },
+    "default_source": "default",
     "admin": {
         "lists": {
             "default": {

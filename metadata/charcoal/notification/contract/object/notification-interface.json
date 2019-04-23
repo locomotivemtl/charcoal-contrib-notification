@@ -11,11 +11,12 @@
                 "en": "User"
             },
             "obj_type":"charcoal/admin/user",
-            "multiple": true
+            "multiple": true,
+            "pattern": "{{displayName}} ({{email}})"
         },
         "target_types":{
             "type":"object",
-            "obj_type": "charcoal/admin/object/notification-target",
+            "obj_type": "charcoal/notification/object/notification-target",
             "multiple": true,
             "label": {
                 "fr": "Objets",
@@ -37,16 +38,38 @@
                 "fr": "Fréquence",
                 "en": "Frequency"
             },
+            "input_type": "charcoal/admin/property/input/select",
             "choices":{
                 "minute":{
                     "label": {
-                        "fr": "Minute"
+                        "fr": "À chaque minute",
+                        "en": "Every minute"
                     }
                 },
-                "hourly":{},
-                "daily":{},
-                "weekly":{},
-                "yearly":{}
+                "hourly":{
+                    "label": {
+                        "fr": "À chaque heure",
+                        "en": "Hourly"
+                    }
+                },
+                "daily":{
+                    "label": {
+                        "fr": "Quotidiennement",
+                        "en": "Daily"
+                    }
+                },
+                "weekly":{
+                    "label": {
+                        "fr": "Hebdomadairement",
+                        "en": "Weekly"
+                    }
+                },
+                "yearly":{
+                    "label": {
+                        "fr": "À chaque année",
+                        "en": "Yearly"
+                    }
+                }
             }
         },
         "active":{

@@ -1,8 +1,8 @@
 <?php
 
-namespace Charcoal\Admin\Object;
+namespace Charcoal\Notification\Object;
 
-use Charcoal\Notification\NotificationInterface;
+use Charcoal\Notification\Contract\Object\NotificationInterface;
 use Charcoal\Object\Content;
 use InvalidArgumentException;
 

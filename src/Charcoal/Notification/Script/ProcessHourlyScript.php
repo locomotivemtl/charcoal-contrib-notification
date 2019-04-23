@@ -2,11 +2,8 @@
 
 namespace Charcoal\Notification\Script;
 
+use Charcoal\Notification\Object\Notification;
 use DateTime;
-
-// From 'charcoal-admin'
-use Charcoal\Admin\Object\Notification;
-use Charcoal\Admin\Script\Notification\AbstractNotificationScript;
 
 /**
  * Process "hourly" notifications
@@ -23,10 +20,11 @@ class ProcessHourlyScript extends AbstractNotificationScript
         return 'hourly';
     }
 
-      /**
-       * Retrieve the "minimal" date that the revisions should have been made for this script.
-       * @return DateTime
-       */
+    /**
+     * Retrieve the "minimal" date that the revisions should have been made for this script.
+     *
+     * @return DateTime
+     */
     protected function startDate()
     {
         $d = new DateTime('1 hour ago');
@@ -36,6 +34,7 @@ class ProcessHourlyScript extends AbstractNotificationScript
 
     /**
      * Retrieve the "maximal" date that the revisions should have been made for this script.
+     *
      * @return DateTime
      */
     protected function endDate()
@@ -55,9 +54,9 @@ class ProcessHourlyScript extends AbstractNotificationScript
         unset($notification, $objects);
 
         return [
-            'subject'         => sprintf('Hourly Charcoal Notification - %s', $this->startDate()->format('Y-m-d H:m')),
-            'template_ident'  => 'charcoal/admin/email/notification.hourly',
-            'template_data'   => [
+            'subject'        => sprintf('Hourly Charcoal Notification - %s', $this->startDate()->format('Y-m-d H:m')),
+            'template_ident' => 'charcoal/admin/email/notification.hourly',
+            'template_data'  => [
                 'startString' => $this->startDate()->format('Y-m-d H:m'),
             ]
         ];

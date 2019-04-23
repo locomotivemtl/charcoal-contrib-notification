@@ -3,19 +3,19 @@
         "routes": {
             "scripts": {
                 "notification/minute":{
-                    "ident": "charcoal/admin/script/notification/process-minute"
+                    "ident": "charcoal/notification/script/process-minute"
                 },
                 "notification/hourly":{
-                    "ident": "charcoal/admin/script/notification/process-hourly"
+                    "ident": "charcoal/notification/script/process-hourly"
                 },
                 "notification/daily":{
-                    "ident": "charcoal/admin/script/notification/process-daily"
+                    "ident": "charcoal/notification/script/process-daily"
                 },
                 "notification/weekly":{
-                    "ident": "charcoal/admin/script/notification/process-weekly"
+                    "ident": "charcoal/notification/script/process-weekly"
                 },
                 "notification/monthly":{
-                    "ident": "charcoal/admin/script/notification/process-monthly"
+                    "ident": "charcoal/notification/script/process-monthly"
                 }
             }
         },
