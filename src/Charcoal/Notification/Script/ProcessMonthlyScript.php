@@ -50,7 +50,7 @@ class ProcessMonthlyScript extends AbstractNotificationScript
      * @param array        $objects      The objects that were modified.
      * @return array
      */
-    protected function emailData(Notification $notification, array $objects)
+    public function emailData(Notification $notification, array $objects)
     {
         unset($notification, $objects);
 

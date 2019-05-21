@@ -29,8 +29,8 @@ class ProcessMinuteScript extends AbstractNotificationScript
      */
     protected function startDate()
     {
-        $d = new DateTime('1 minute ago');
-        $d->setTime(0, 0, 0);
+        $d = new DateTime('-1 minute');
+        $d->setTime($d->format('H'), $d->format('i'));
         return $d;
     }
 
@@ -41,7 +41,9 @@ class ProcessMinuteScript extends AbstractNotificationScript
      */
     protected function endDate()
     {
-        $d = new DateTime($this->starDate() . ' +1 minute');
+        // $d = new DateTime($this->startDate() . ' +1 minute');
+        $d = new DateTime('now');
+        $d->setTime($d->format('H'), $d->format('i'));
         return $d;
     }
 
@@ -50,7 +52,7 @@ class ProcessMinuteScript extends AbstractNotificationScript
      * @param array        $objects      The objects that were modified.
      * @return array
      */
-    protected function emailData(Notification $notification, array $objects)
+    public function emailData(Notification $notification, array $objects)
     {
         unset($notification, $objects);
 
