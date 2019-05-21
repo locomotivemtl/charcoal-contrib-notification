@@ -333,7 +333,9 @@ class NotificationService
         }
 
         foreach ($notification->extraEmails() as $extraEmail) {
-            $email->addBcc($extraEmail);
+            if (filter_var($extraEmail, FILTER_VALIDATE_EMAIL)) {
+                $email->addBcc($extraEmail);
+            }
         }
         
         $email->send();
