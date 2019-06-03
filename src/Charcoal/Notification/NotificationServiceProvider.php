@@ -51,7 +51,8 @@ class NotificationServiceProvider implements ServiceProviderInterface
                 'model/factory'           => $container['model/factory'],
                 'model/collection/loader' => $container['model/collection/loader'],
                 'email/factory'           => $container['email/factory'],
-                'notification/presenter'  => $container['notification/presenter']
+                'notification/presenter'  => $container['notification/presenter'],
+                'config' => $container['config']
             ]);
         };
     }

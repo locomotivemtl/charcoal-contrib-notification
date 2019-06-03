@@ -3,6 +3,7 @@
 namespace Charcoal\Notification\Service;
 
 use Charcoal\Admin\User;
+use Charcoal\App\AppConfig;
 use Charcoal\Loader\CollectionLoaderAwareTrait;
 use Charcoal\Model\ModelFactoryTrait;
 use Charcoal\Notification\Object\Notification;
@@ -26,6 +27,11 @@ class NotificationService
      * @var Presenter
      */
     protected $notificationPresenter;
+
+    /**
+     * @var AppConfig
+     */
+    protected $appConfig;
 
     /**
      * @var string
@@ -53,6 +59,8 @@ class NotificationService
         $this->setEmailFactory($data['email/factory']);
         $this->setModelFactory($data['model/factory']);
         $this->setCollectionLoader($data['model/collection/loader']);
+        $this->setAppConfig($data['config']);
+
         return $this;
     }
 
@@ -89,6 +97,24 @@ class NotificationService
     public function setNotificationPresenter($notificationPresenter)
     {
         $this->notificationPresenter = $notificationPresenter;
+        return $this;
+    }
+
+    /**
+     * @return AppConfig
+     */
+    public function appConfig()
+    {
+        return $this->appConfig;
+    }
+
+    /**
+     * @param AppConfig $appConfig
+     * @return NotificationService
+     */
+    public function setAppConfig($appConfig)
+    {
+        $this->appConfig = $appConfig;
         return $this;
     }
 
@@ -320,7 +346,11 @@ class NotificationService
             ]
         ];
 
-        $emailData = array_replace_recursive($defaultEmailData, $emailData);
+        $dataFromConfig = $this->appConfig()->get('notification.email_data');
+
+
+        $emailData = array_replace_recursive($defaultEmailData, $dataFromConfig, $emailData);
+
         $email->setData($emailData);
 
         foreach ($notification->users() as $userId) {
@@ -337,7 +367,7 @@ class NotificationService
                 $email->addBcc($extraEmail);
             }
         }
-        
+
         $email->send();
     }
 
