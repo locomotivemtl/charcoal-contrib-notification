@@ -1,22 +1,22 @@
 {
-    "properties":{
-        "id":{
-            "type":"id",
-            "mode":"uniqid"
+    "properties": {
+        "id": {
+            "type": "id",
+            "mode": "uniqid"
         },
-        "users":{
-            "type":"object",
+        "users": {
+            "type": "object",
             "label": {
                 "fr": "Utilisateur",
                 "en": "User"
             },
-            "obj_type":"charcoal/admin/user",
+            "objType": "charcoal/admin/user",
             "multiple": true,
             "pattern": "{{displayName}} ({{email}})"
         },
-        "target_types":{
-            "type":"object",
-            "obj_type": "charcoal/notification/object/notification-target",
+        "targetTypes": {
+            "type": "object",
+            "objType": "charcoal/notification/object/notification-target",
             "multiple": true,
             "label": {
                 "fr": "Objets",
@@ -24,7 +24,7 @@
             },
             "pattern": "{{label}}"
         },
-        "extra_emails":{
+        "extraEmails":{
             "type":"email",
             "label": {
                 "fr": "Courriel",
@@ -38,7 +38,7 @@
                 "fr": "Fréquence",
                 "en": "Frequency"
             },
-            "input_type": "charcoal/admin/property/input/select",
+            "inputType": "charcoal/admin/property/input/select",
             "choices":{
                 "minute":{
                     "label": {

@@ -240,13 +240,13 @@ class NotificationService
 
         $out = [];
         foreach ($list as $notification) {
-            if (empty($notification->targetTypes())) {
+            if (empty($notification['targetTypes'])) {
                 continue;
             }
 
             $objByType = [];
             $num       = 0;
-            foreach ($notification->targetTypes() as $objType) {
+            foreach ($notification['targetTypes'] as $objType) {
                 $objects             = $this->updatedObjects($objType);
                 $num                 += count($objects);
                 $objByType[$objType] = $objects;
@@ -291,12 +291,12 @@ class NotificationService
      */
     public function objectsByNotification(Notification $notification)
     {
-        if (empty($notification->targetTypes())) {
+        if (empty($notification['targetTypes'])) {
             return [];
         }
         $objectsByTypes = [];
         $numTotal       = 0;
-        foreach ($notification->targetTypes() as $objType) {
+        foreach ($notification['targetTypes'] as $objType) {
             $objType = trim($objType);
             $objects = $this->updatedObjects($objType);
             $num     = count($objects);
@@ -353,7 +353,7 @@ class NotificationService
 
         $email->setData($emailData);
 
-        foreach ($notification->users() as $userId) {
+        foreach ($notification['users'] as $userId) {
             $user = $this->modelFactory()->create(User::class);
             $user->load($userId);
             if (!$user->id() || !$user->email()) {
@@ -362,7 +362,7 @@ class NotificationService
             $email->addTo($user->email());
         }
 
-        foreach ($notification->extraEmails() as $extraEmail) {
+        foreach ($notification['extraEmails'] as $extraEmail) {
             if (filter_var($extraEmail, FILTER_VALIDATE_EMAIL)) {
                 $email->addBcc($extraEmail);
             }

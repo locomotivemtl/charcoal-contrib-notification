@@ -4,7 +4,9 @@
             "table": "charcoal_admin_notification_targets"
         }
     },
-    "default_source": "default",
+
+    "defaultSource": "default",
+
     "admin": {
         "lists": {
             "default": {
@@ -14,7 +16,7 @@
                     "label",
                     "active"
                 ],
-                "list_actions": [
+                "listActions": [
                     {
                         "ident": "create",
                         "label": {
@@ -26,7 +28,8 @@
                 ]
             }
         },
-        "default_list": "default",
+
+        "defaultList": "default",
 
         "forms": {
             "default": {
@@ -62,15 +65,16 @@
                     "actions": {
                         "properties": [
                             "created",
-                            "created_by",
-                            "last_modified",
-                            "last_modified_by"
+                            "createdBy",
+                            "lastModified",
+                            "lastModifiedBy"
                         ]
                     }
                 }
             }
         },
-        "default_form": "default",
+
+        "defaultForm": "default",
 
         "dashboards": {
             "admin.edit": {
@@ -84,14 +88,15 @@
                 "widgets": {
                     "list": {
                         "type": "charcoal/admin/widget/table",
-                        "collection_ident": "default",
-                        "data_sources": ["request"]
+                        "collectionIdent": "default",
+                        "dataSources": ["request"]
                     }
                 }
             }
         },
-        "default_create_dashboard": "admin.edit",
-        "default_edit_dashboard": "admin.edit",
-        "default_collection_dashboard": "admin.collection"
+
+        "defaultCreateDashboard": "admin.edit",
+        "defaultEditDashboard": "admin.edit",
+        "defaultCollectionDashboard": "admin.collection"
     }
 }

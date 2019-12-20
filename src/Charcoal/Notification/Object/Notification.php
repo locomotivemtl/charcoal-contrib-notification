@@ -16,33 +16,33 @@ class Notification extends Content implements NotificationInterface
      *
      * @var string[]
      */
-    private $users = [];
+    protected $users = [];
 
     /**
      * The types of object to watch, for notifications.
      *
      * @var string[]
      */
-    private $targetTypes;
+    protected $targetTypes;
 
     /**
      * Extra emails the report shoul be sent to.
      *
      * @var string[]
      */
-    private $extraEmails = [];
+    protected $extraEmails = [];
 
     /**
      * Can be "minute", "hourly", "daily", "weekly" or "monthly".
      *
      * @var string
      */
-    private $frequency;
+    protected $frequency;
 
     /**
      * @var boolean
      */
-    private $active = true;
+    protected $active = true;
 
     /**
      * @param array|string|null $users The users of this notifications.
@@ -65,14 +65,6 @@ class Notification extends Content implements NotificationInterface
         }
         $this->users = array_map('trim', $users);
         return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function users()
-    {
-        return $this->users;
     }
 
     /**
@@ -99,14 +91,6 @@ class Notification extends Content implements NotificationInterface
     }
 
     /**
-     * @return array|null
-     */
-    public function targetTypes()
-    {
-        return $this->targetTypes;
-    }
-
-    /**
      * @param array|string|null $extraEmails The targetTypes of this notifications.
      * @throws InvalidArgumentException If the emails are not an array or a comma-separated string.
      * @return Notification Chainable
@@ -127,14 +111,6 @@ class Notification extends Content implements NotificationInterface
         }
         $this->extraEmails = array_map('trim', $extraEmails);
         return $this;
-    }
-
-    /**
-     * @return array|null
-     */
-    public function extraEmails()
-    {
-        return $this->extraEmails;
     }
 
     /**
@@ -165,14 +141,6 @@ class Notification extends Content implements NotificationInterface
     }
 
     /**
-     * @return boolean
-     */
-    public function frequency()
-    {
-        return $this->frequency;
-    }
-
-    /**
      * @param boolean $active The active flag.
      * @return Notification Chainable
      */
@@ -180,13 +148,5 @@ class Notification extends Content implements NotificationInterface
     {
         $this->active = !!$active;
         return $this;
-    }
-
-    /**
-     * @return boolean
-     */
-    public function active()
-    {
-        return $this->active;
     }
 }
